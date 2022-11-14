@@ -4,16 +4,15 @@ runFunc()
 
 function runFunc() {
   const dirName = 'HelloWorld'
-  const fileName = 'main.c'
+  const fileName = 'main.cpp'
   const compilatorName = 'main'
-  const cores = '4'
+  const cores = '3'
 
   const locate = 'cd ../' + dirName
-  const createCompilator = 'mpicc ' + fileName + ' -o ' + compilatorName
+  const createCompilator = 'mpic++ ' + fileName + ' -o ' + compilatorName
   const runCompilator = 'mpirun -n ' + cores + ' ' + compilatorName
 
   const bashCommand = locate + ' && ' + createCompilator + ' && ' + runCompilator
-
   exec(bashCommand, (err, stdout, stderr) => {
     if (err) {
       console.log(err)
